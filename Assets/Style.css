@@ -60,4 +60,5 @@ table{
     height: 20px;
     text-align: center;
     margin-bottom: 20px;
+    display: inline-block;
 }
