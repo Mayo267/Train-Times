@@ -24,6 +24,27 @@ table{
     
 }
 
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+    #form{
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 30px;
+        border: .5px solid black;
+        box-shadow: 10px 10px 5px;
+        padding: 20px;
+        margin-bottom: 50px;
+        background: #dee2e6;
+        font-weight: bold;
+        border-radius: 25px;
+    }
+}
+
+
 #table{
     width: 75%;
     margin: 0 auto;
@@ -34,6 +55,7 @@ table{
     overflow-y: scroll;
     background: white;
     margin-bottom: 25px;
+    
     
     
 }
