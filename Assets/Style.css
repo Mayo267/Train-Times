@@ -173,5 +173,6 @@ table{
     background: #00a9ff;
     border: 0px;
     border-radius: 0px;
+    border-top: 10px solid yellow;
 }
 }
