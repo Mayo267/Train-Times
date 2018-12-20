@@ -124,7 +124,7 @@ table{
     width: 75%;
     margin: 0 auto;
     margin-top: 30px;
-    border: 4px solid yellow;
+    border: .5px solid black;
     /* border-radius: 25px 25px 25px; */
     box-shadow: 10px 10px 5px;
     overflow-y: scroll;
@@ -151,7 +151,7 @@ table{
     width: 75%;
     margin: 0 auto;
     margin-top: 30px;
-    border: 4px solid yellow;
+    border: .5px solid black;
     box-shadow: 10px 10px 5px;
     padding: 20px;
     margin-bottom: 50px;
