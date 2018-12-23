@@ -84,11 +84,11 @@ database.ref().orderByChild("dateAdded").on("child_added", function(childSnapsho
     
     var trainName = childSnapshot.val().trainName
     var destination = childSnapshot.val().trainDestination
-    var TrainTime = childSnapshot.val().trainFirstTime
+    var trainTime = childSnapshot.val().trainFirstTime
     var frequency = childSnapshot.val().trainFrequency
     var time = moment();
 
-    var nextArrival = moment(TrainTime, "HH:mm:ss").add(frequency, "minutes").format("HH:mm");
+    var nextArrival = moment(trainTime, "HH:mm:ss").add(frequency, "minutes").format("HH:mm");
     var minutesAway = moment(nextArrival, "HH:mm:ss").diff(time, "minutes");
     
     //===== ADDS A NEW ROW ====//
