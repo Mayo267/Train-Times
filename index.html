@@ -11,6 +11,12 @@
 <!-- Mobile-Friendly Link -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
     <title>Train Times</title>
@@ -32,64 +38,16 @@
     <div class="table-responsive">
     <table id="table"  class="table table-striped" style="overflow-x: auto">
             <thead class="thead-dark">
-              <tr>
+            <tr>
                 <th id="topTable" scope="col">Train Name</th>
                 <th id="topTable" scope="col">Destination</th>
                 <th id="topTable" scope="col">Frequency (min)</th>
                 <th id="topTable" scope="col">Next Arrival</th>
                 <th id="topTable" scope="col">Minutes Away</th>
-              </tr>
+            </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Trenton Express</th>
-                
-                <td>Trenton</td>
-                <td>25</td>
-                <td>17:35</td>
-                <td>10</td>
-              </tr>
-              <tr>
-                <th scope="row">Oregon Trail</th>
-                
-                <td>Salem, Oregon</td>
-                <td>3600</td>
-                <td>13:29</td>
-                <td>1154</td>
-              </tr>
-              <tr>
-                <th scope="row">Midnight Carriage</th>
-                
-                <td>Philadelphia</td>
-                <td>15</td>
-                <td>17:35</td>
-                <td>10</td>
-              </tr>
-              <tr>
-                <th scope="row">Sing Sing Carivan</th>
-                
-                <td>Atlanta</td>
-                <td>45</td>
-                <td>17:53</td>
-                <td>28</td>
-              </tr>
-              <tr>
-                <th scope="row">Boston Bus</th>
-                
-                <td>Boston</td>
-                <td>65</td>
-                <td>17:50</td>
-                <td>25</td>
-              </tr>
-              <tr>
-                <th scope="row">California Carivan</th>
-                
-                <td>San Francisco</td>
-                <td>6000</td>
-                <td>01:25</td>
-                <td>4740</td>
-              </tr>
-                
+            <!--===== THIS WILL BE FILLED  WITH JAVASCRIPT ROWS=====-->
             </tbody>
     </table>
     </div>
@@ -107,25 +65,29 @@
         </div> -->
         <div class="form-group">
           <label for="exampleFormControlInput1">Train Name</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add the name of ther train...">
+            <input type="text" class="form-control"  id="train-name" placeholder="Add the name of ther train...">
         </div>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Destination</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add the destination time...">
+            <input type="text" class="form-control"  id="train-dest" placeholder="Add the destination time...">
           </select>
         </div>
         <div class="form-group">
           <label for="exampleFormControlSelect2">First Train Time (HH:mm - Military Time)</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add the first train time...">
+            <input type="text" class="form-control"  id="train-first" placeholder="Add the first train time...">
           </select>
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Frequency (min)</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add the frequency of the train...">
+            <input type="number" class="form-control"  id="train-frequency" placeholder="Add the frequency of the train...">
         </div>
-        <button type="button" class="btn btn-success"><strong>Add Train</strong></button>
+        <button id="add-train" type="button" class="btn btn-success"><strong>Add Train</strong></button>
     </form>
 </div>
+
+
+<!-- Moment.js -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 <!-- JavaScript Link -->
 <script src="./Assets/train.js"></script>
