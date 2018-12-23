@@ -41,11 +41,11 @@ $("#add-train").on("click", function(){
     event.preventDefault();
     var trainName = $('#train-name').val().trim();
     var trainDestination = $('#train-dest').val().trim();
-    var trainArrival = $('#train-first').val().trim();
+    var trainFirstTime = $('#train-first').val().trim();
     var trainFrequency = $("#train-frequency").val().trim();
     
 
-    // moment(trainArrival).format("HH:mm");
+    // moment(trainFirstTime).format("HH:mm");
     // moment(trainFrequency).format("minutes");
     
     //create variable for new row 
@@ -56,7 +56,7 @@ $("#add-train").on("click", function(){
     database.ref().push({
         trainName: trainName,
         trainDestination: trainDestination,
-        trainArrival: trainArrival,
+        trainFirstTime: trainFirstTime,
         trainFrequency: trainFrequency,
         
         dateAdded: firebase.database.ServerValue.TIMESTAMP
@@ -78,29 +78,29 @@ database.ref().orderByChild("dateAdded").on("child_added", function(childSnapsho
 
     console.log("Train Name: ", childSnapshot.val().trainName);
     console.log("Destination: ", childSnapshot.val().trainDestination);
-    console.log("Train Arrival: ", childSnapshot.val().trainArrival);
+    console.log("Train Arrival: ", childSnapshot.val().trainFirstTime);
     console.log("Frequency: ", childSnapshot.val().trainFrequency);
     console.log("-----------------");
     
-    
-    //==== Adding train to the table =====//
-    var now = moment().format('HH:mm');
+    var trainName = childSnapshot.val().trainName
+    var destination = childSnapshot.val().trainDestination
+    var TrainTime = childSnapshot.val().trainFirstTime
+    var frequency = childSnapshot.val().trainFrequency
+    var time = moment();
 
-    
-
-
-        //=== Next Arrival ===//
+    var nextArrival = moment(TrainTime, "HH:mm:ss").add(frequency, "minutes").format("HH:mm");
+    var minutesAway = moment(nextArrival, "HH:mm:ss").diff(time, "minutes");
     
     //===== ADDS A NEW ROW ====//
-    var newRow = $("<tr>").append(
-        $("<td>").text(childSnapshot.val().trainName),
-        $("<td>").text(childSnapshot.val().trainDestination),
-        $("<td>").text(childSnapshot.val().trainFrequency),
-        $("<td>").text(moment(trainArrival, "HH:mm").format("HH:mm")),
-        $("<td>").text(minutesAway),
-    );
-
-    $('#table > tbody').append(newRow);
+    var dataArray = [trainName, destination, frequency, nextArrival, minutesAway];
+    var newTr = $("<tr>")
+    for (var i = 0; i < dataArray.length; i++) {
+        var newTd = $("<td>");
+        newTd.text(dataArray[i]);
+        newTd.appendTo(newTr)
+    }
+    $("tbody").append(newTr); 
+    
 })
 
 //==================================//
